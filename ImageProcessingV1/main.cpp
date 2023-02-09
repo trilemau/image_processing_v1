@@ -13,4 +13,7 @@ int main()
 
     result = ImageProcessing::Invert(image);
     result.Save("invert.jpg");
+
+    result = ImageProcessing::GaussianBlur(image, 20);
+    result.Save("gaussian_blur.jpg");
 }

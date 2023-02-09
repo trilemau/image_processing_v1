@@ -12,7 +12,7 @@
 
 
 //#define IMAGE_PATH "C:/Users/stefq/Pictures/batman.png"
-#define IMAGE_PATH "C:/Users/stefq/Pictures/Untitled-3.jpg"
+#define IMAGE_PATH "C:/Users/stefq/Pictures/batman.jpg"
 #define CHANNEL_NUM 3
 
 struct Pixel
@@ -107,6 +107,18 @@ public:
     {
         return Desaturate(image, 100);
     }
+
+    static Image Invert(const Image& image)
+    {
+        Image result = image;
+
+        for (auto& pixel : result.GetPixels())
+        {
+            pixel = 255 - pixel;
+        }
+
+        return result;
+    }
 };
 
 int main()
@@ -117,11 +129,11 @@ int main()
 
     Image image(rgb_image, width, height, bpp);
 
-    auto result = ImageFilter::Desaturate(image, 80);
+    auto result = ImageFilter::Desaturate(image, 100);
+    stbi_write_jpg("desaturate.jpg", width, height, CHANNEL_NUM, result.GetPixels().data(), 100);
 
-    stbi_write_jpg("image.jpg", width, height, CHANNEL_NUM, result.GetPixels().data(), 100);
-    //stbi_write_jpg("image.jpg", width, height, CHANNEL_NUM, rgb_image, 100);
-    //stbi_write_png("image.jpg", width, height, CHANNEL_NUM, result.GetPixels().data(), width * CHANNEL_NUM);
+    result = ImageFilter::Invert(image);
+    stbi_write_jpg("invert.jpg", width, height, CHANNEL_NUM, result.GetPixels().data(), 100);
 
     stbi_image_free(rgb_image);
 

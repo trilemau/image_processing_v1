@@ -5,3 +5,6 @@ ImageProcessingV1/.vs
 ImageProcessingV1/ImageProcessingV1/x64
 ImageProcessingV1/Tests/x64
 ImageProcessingV1/x64
+*.jpg
+*.bmp
+*.png

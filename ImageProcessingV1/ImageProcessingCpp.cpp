@@ -1,6 +1,11 @@
-#include "ImageProcessing.h"
+#include "ImageProcessingCpp.h"
 
-Image ImageProcessing::Desaturate(const Image& image, int percent)
+std::string ImageProcessingCpp::Info() const
+{
+    return "Image Processing using C++";
+}
+
+Image ImageProcessingCpp::Desaturate(const Image& image, int percent)
 {
     float percent_float = static_cast<float>(percent) / 100;
 
@@ -13,7 +18,7 @@ Image ImageProcessing::Desaturate(const Image& image, int percent)
         auto& green = pixels[i + 1];
         auto& blue = pixels[i + 2];
 
-        float average = (red + green + blue) / 3;
+        float average = (pixels[i] + pixels[i+1] + pixels[i+2]) / 3;
 
         red = red - (red - average) * percent_float;
         green = green - (green - average) * percent_float;
@@ -23,12 +28,12 @@ Image ImageProcessing::Desaturate(const Image& image, int percent)
     return result;
 }
 
-Image ImageProcessing::Greyscale(const Image& image)
+Image ImageProcessingCpp::Greyscale(const Image& image)
 {
     return Desaturate(image, 100);
 }
 
-Image ImageProcessing::Invert(const Image& image)
+Image ImageProcessingCpp::Invert(const Image& image)
 {
     Image result = image;
 
@@ -40,7 +45,7 @@ Image ImageProcessing::Invert(const Image& image)
     return result;
 }
 
-Image ImageProcessing::GaussianBlur(const Image& image, int times)
+Image ImageProcessingCpp::GaussianBlur(const Image& image, int times)
 {
     Image result = image;
     auto& pixels = result.GetPixels();

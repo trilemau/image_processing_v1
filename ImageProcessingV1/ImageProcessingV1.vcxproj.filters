@@ -1,15 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Image.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ImageProcessing.cpp" />
+    <ClCompile Include="ImageProcessingCpp.cpp">
+      <Filter>ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageProcessingOpenCL.cpp">
+      <Filter>ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Image</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Image.h" />
-    <ClInclude Include="stb_image.h" />
-    <ClInclude Include="stb_image_write.h" />
-    <ClInclude Include="ImageProcessing.h" />
     <ClInclude Include="Libs.h" />
+    <ClInclude Include="ImageProcessingCpp.h">
+      <Filter>ImageProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageProcessingOpenCL.h">
+      <Filter>ImageProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="IImageProcessing.h">
+      <Filter>ImageProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image_write.h">
+      <Filter>Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="gaussian_blur.cl">
+      <Filter>OpenCL kernels</Filter>
+    </None>
+    <None Include="desaturate.cl">
+      <Filter>OpenCL kernels</Filter>
+    </None>
+    <None Include="invert.cl">
+      <Filter>OpenCL kernels</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="OpenCL kernels">
+      <UniqueIdentifier>{e2657bcc-c6fb-438f-961a-cfbbfa8753ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageProcessing">
+      <UniqueIdentifier>{8981604c-7a93-46cb-9928-478d88811e99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{ad9aa32b-9cc4-4d86-a4aa-bfed61f5cf75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image">
+      <UniqueIdentifier>{e8bad483-44a2-4ef6-a987-09a80759b35d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
